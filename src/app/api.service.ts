@@ -14,7 +14,7 @@ API_KEY ='f174c95242974ca49e0735c844422f61';
   }
   getJogosNews(){
     let headers = new HttpHeaders().set('authorization', 'Bearer ' + this.API_KEY);
-    return this.httpClient.get('https://newsapi.org/v2/everything?q=jogos', {headers: headers});
+    return this.httpClient.get('https://newsapi.org/v2/everything?q=jogo AND (ps4 OR ps3 OR nintendo OR nintendo OR xbox)&language=pt', {headers: headers});
   }
   getFilmesNews(){
     let headers = new HttpHeaders().set('authorization', 'Bearer ' + this.API_KEY);

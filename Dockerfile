@@ -63,4 +63,5 @@ EXPOSE 53703
 
 CMD ["ionic", "serve", "-l", "--devapp", "--address", "0.0.0.0", "--lab-host", "0.0.0.0"]
 #Rodar o bash
+#ionic serve -l --devapp --address 0.0.0.0 --lab-host 0.0.0.0
 #docker run -it -p 8100:8100 -p 8200:8200 -p 35729:35729 -p 53703:53703 -v C:\Users\darks\Documents\Estudo\Mobile\noticiasapp:/ionic ionic-alpine /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"

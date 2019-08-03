@@ -10,6 +10,9 @@
   </ion-header>
   
   <ion-content color="dark">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
       <ion-card *ngFor="let article of articles">
           <ion-img src="{{article.urlToImage}}"></ion-img>
           <ion-card-header>
