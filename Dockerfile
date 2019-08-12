@@ -14,6 +14,7 @@ ENV PATH ${PATH}:${JAVA_HOME}/bin:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_RO
 
 RUN apk add -U --no-cache curl git npm && \
     npm i -g --unsafe-perm ionic cordova && \
+    npm install -g nativescript  && \
     ionic --no-interactive config set -g daemon.updates false && \
     # Download and install glibc
     echo "Baixando glibc" && \

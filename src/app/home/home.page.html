@@ -4,15 +4,18 @@
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>
-        Bombando
+        Bombandoo
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content color="dark">
-      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content></ion-refresher-content>
-        </ion-refresher>
+    <ion-refresher color="dark" slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-down"
+        pullingText="Puxe para recarregar">
+      </ion-refresher-content>
+    </ion-refresher>
       <ion-card *ngFor="let article of articles">
           <ion-img src="{{article.urlToImage}}"></ion-img>
           <ion-card-header>
