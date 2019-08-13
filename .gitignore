@@ -19,6 +19,7 @@ my-release-key.keystore.old
 .sass-cache/
 .tmp/
 .versions/
+.gradle/
 coverage/
 www/
 node_modules/

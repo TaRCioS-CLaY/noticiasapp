@@ -20,6 +20,7 @@ export class JogosPage implements OnInit {
   carregando = true;
   async ngOnInit() {
     this.statusBar.overlaysWebView(true);
+    this.statusBar.backgroundColorByHexString('#3880ff');
 
     const loading = await loadingController.create({
       message: 'Carregando',
@@ -48,6 +49,9 @@ export class JogosPage implements OnInit {
   doRefresh(event) {
     this.apiService.getJogosNews().subscribe((data)=>{
       this.articles = data['articles'];
-    },null,() => event.target.complete());
+    },null,() => {
+      this.localDB.set('jogos', this.articles);
+      event.target.complete();
+    });
   }
 }

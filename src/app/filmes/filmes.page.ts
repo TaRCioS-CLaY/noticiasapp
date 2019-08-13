@@ -20,6 +20,7 @@ export class FilmesPage implements OnInit {
   carregando = true;
   async ngOnInit() {
 this.statusBar.overlaysWebView(true);
+this.statusBar.backgroundColorByHexString('#3880ff');
 
 const loading = await loadingController.create({
   message: 'Carregando',
@@ -48,6 +49,9 @@ if(!await this.localDB.get('filmes')){
   doRefresh(event) {
     this.apiService.getFilmesNews().subscribe((data)=>{
       this.articles = data['articles'];
-    },null,() => event.target.complete());
+    },null,() => {
+      this.localDB.set('filmes', this.articles);
+      event.target.complete();
+    });
   }
 }

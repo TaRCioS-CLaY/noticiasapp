@@ -25,6 +25,7 @@ export class HomePage {
     });
 
     this.statusBar.overlaysWebView(true);
+    this.statusBar.backgroundColorByHexString('#3880ff');
     if(!await this.localDB.get('topBombando')){
       if(this.carregando){
         loading.present();
@@ -48,6 +49,9 @@ export class HomePage {
   doRefresh(event) {
     this.apiService.getTopNews().subscribe((data)=>{
       this.articles = data['articles'];
-    },null,() => event.target.complete());
+    },null,() => {
+      this.localDB.set('topBombando', this.articles);
+      event.target.complete();
+    });
   }
 }
