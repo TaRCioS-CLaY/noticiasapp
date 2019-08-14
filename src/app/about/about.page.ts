@@ -11,7 +11,7 @@ export class AboutPage implements OnInit {
 
   ngOnInit() {
     this.statusBar.overlaysWebView(true);
-    this.statusBar.backgroundColorByHexString('#ffffff');
+    this.statusBar.backgroundColorByHexString('#3880ff');
   }
 
 }

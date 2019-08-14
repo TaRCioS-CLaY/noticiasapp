@@ -18,6 +18,7 @@ export class FilmesPage implements OnInit {
   
   articles;
   carregando = true;
+  pagina = 1;
   async ngOnInit() {
 this.statusBar.overlaysWebView(true);
 this.statusBar.backgroundColorByHexString('#3880ff');
@@ -54,4 +55,23 @@ if(!await this.localDB.get('filmes')){
       event.target.complete();
     });
   }
+
+  
+  carregarMaisNoticias(event) {
+    this.localDB.get('filmes').then((data) =>{
+      this.articles = data;
+    });
+    console.log('artigos do banco: ', this.articles);
+
+    this.apiService.getFilmesNews(this.pagina++).subscribe((data)=>{
+      console.log('Artigos da consulta:', data['articles']);
+      data['articles'].forEach(article => {
+        this.articles.push(article);
+      });
+      console.log('Final: ',this.articles);
+    },null,() => {
+      this.localDB.set('filmes', this.articles);
+      event.target.complete();
+    });
+}
 }
